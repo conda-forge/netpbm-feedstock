@@ -11,12 +11,12 @@ source:
 
 build:
   number: 0
-  skip: True  # [osx or win]
+  skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - pkg-config  # [linux]
+    - pkg-config
     - flex
     - gettext
     - make
