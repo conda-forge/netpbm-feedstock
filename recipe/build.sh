@@ -1,15 +1,13 @@
 #!/bin/bash
 
-if [ ${SHLIB_EXT} == '.so' ]
+if [ $(uname) = Linux ]
     then
         cp ${RECIPE_DIR}/config.mk.linux config.mk
 fi
 
-if [ ${SHLIB_EXT} == '.dylib' ]
+if [ $(uname) = Darwin ]
     then
-        # cp ${RECIPE_DIR}/config.mk.osx config.mk
-        echo 'Mac not supported yet.'
-        exit 1
+        cp ${RECIPE_DIR}/config.mk.macos config.mk
 fi
 
 make
