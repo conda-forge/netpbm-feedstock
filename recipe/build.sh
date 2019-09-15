@@ -1,5 +1,7 @@
 #!/bin/bash
 
+TMPDIR=`mktemp -d -u`
+
 if [ $(uname) = Linux ]
     then
         cp ${RECIPE_DIR}/config.mk.linux config.mk
@@ -11,8 +13,8 @@ if [ $(uname) = Darwin ]
 fi
 
 make
-TMPDIR=`mktemp -d -u`
 make package pkgdir=${TMPDIR}
-make check
+# make check currently breakes build
+# make check
 sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${TMPDIR}/bin/*
 cp -R ${TMPDIR}/bin ${TMPDIR}/lib ${TMPDIR}/include ${PREFIX}

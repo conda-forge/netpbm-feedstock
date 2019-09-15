@@ -55,8 +55,8 @@ WINICON_OBJECT =
 OMIT_NETWORK =
 NETWORKLD = 
 DONT_HAVE_PROCESS_MGMT = N
-PKGDIR_DEFAULT = ${TMPDIR}/netpbm
-RESULTDIR_DEFAULT = ${TMPDIR}/netpbm-test
+PKGDIR_DEFAULT = /tmp/netpbm
+RESULTDIR_DEFAULT = /tmp/netpbm-test
 PKGMANDIR = man
 INSTALL_PERM_BIN =  755       # u=rwx,go=rx
 INSTALL_PERM_LIBD = 755       # u=rwx,go=rx

@@ -4,8 +4,8 @@ CC ?= cc
 LD = $(CC)
 LINKERISCOMPILER=Y
 LINKER_CAN_DO_EXPLICIT_LIBRARY=N
-INTTYPES_H = <sys/stdint.h>
-INTTYPES_H = <sys/types.h>
+INTTYPES_H = <stdint.h>
+INTTYPES_H = <types.h>
 HAVE_INT64 = Y
 WANT_SSE = N
 CC_FOR_BUILD = $(CC)
@@ -56,8 +56,8 @@ WINICON_OBJECT = $(BUILDDIR)/icon/netpbm.o
 OMIT_NETWORK =
 NETWORKLD = 
 DONT_HAVE_PROCESS_MGMT = N
-PKGDIR_DEFAULT = ${TMPDIR}/netpbm
-RESULTDIR_DEFAULT = ${TMPDIR}/netpbm-test
+PKGDIR_DEFAULT = /tmp/netpbm
+RESULTDIR_DEFAULT = /tmp/netpbm-test
 PKGMANDIR = man
 INSTALL_PERM_BIN =  755       # u=rwx,go=rx
 INSTALL_PERM_LIBD = 755       # u=rwx,go=rx
