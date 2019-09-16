@@ -14,8 +14,5 @@ fi
 
 make
 make package pkgdir=${TMPDIR}
-# make check currently breakes build
-# make check
 sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${TMPDIR}/bin/*
-# cp -R ${TMPDIR}/bin ${TMPDIR}/lib ${TMPDIR}/include ${PREFIX}
 ./installnetpbm
