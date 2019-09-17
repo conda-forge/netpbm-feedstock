@@ -31,8 +31,8 @@ fi
 
 if [ $(uname) = Darwin ]
     then
-        ls -Rlh $pkgdir
-        ls -Rlh $PREFIX
-        ls -lh /
-        exit 1
+        cp -rf $pkgdir/bin $PREFIX
+        cp -rf $pkgdir/lib $PREFIX
+        cp -rf $pkgdir/share $PREFIX
+        cp -rf $pkgdir/include $PREFIX
 fi
