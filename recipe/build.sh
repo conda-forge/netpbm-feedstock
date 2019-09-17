@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TMPDIR=`mktemp -d -u`
+pkgdir=`mktemp -d -u`
 
 if [ $(uname) = Linux ]
     then
@@ -12,7 +12,16 @@ if [ $(uname) = Darwin ]
         cp ${RECIPE_DIR}/config.mk.macos config.mk
 fi
 
+sed -i 's|misc|share/netpbm|' common.mk
+sed -i 's|/link|/lib|' lib/Makefile
+sed -i "s|/tmp/netpbm|${pkgdir}|" config.mk
+sed -i 's|install.manwebmain install.manweb install.man|install.man|' GNUmakefile
+
 make
-make package pkgdir=${TMPDIR}
-sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${TMPDIR}/bin/*
-./installnetpbm
+make package pkgdir=${pkgdir} PKGMANDIR="share/man" install-run install-dev
+sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${pkgdir}/bin/*
+
+cp -rf $pkgdir/bin $PREFIX
+cp -rf $pkgdir/lib $PREFIX
+cp -rf $pkgdir/share $PREFIX
+cp -rf $pkgdir/include $PREFIX

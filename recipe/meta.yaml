@@ -28,6 +28,7 @@ requirements:
     - zlib
     - libpng
     - libxml2
+    - ghostscript
   run:
     - perl
     - jpeg
@@ -35,6 +36,7 @@ requirements:
     - zlib
     - libpng
     - libxml2
+    - ghostscript
 
 test:
   commands:
