@@ -35,4 +35,5 @@ if [ $(uname) = Darwin ]
         cp -rf $pkgdir/lib $PREFIX
         cp -rf $pkgdir/share $PREFIX
         cp -rf $pkgdir/include $PREFIX
+        install_name_tool -change /libnetpbm.11.dylib $PREFIX/lib/libnetpbm.11.dylib $PREFIX/bin/*
 fi
