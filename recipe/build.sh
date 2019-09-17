@@ -35,8 +35,5 @@ if [ $(uname) = Darwin ]
         cp -rf $pkgdir/lib $PREFIX
         cp -rf $pkgdir/share $PREFIX
         cp -rf $pkgdir/include $PREFIX
-        for b in $PREFIX/bin/*
-        do
-            install_name_tool -change /libnetpbm.11.dylib $PREFIX/lib/libnetpbm.11.dylib $b
-        done
+        update_dyld_shared_cache
 fi
