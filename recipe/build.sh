@@ -31,9 +31,12 @@ fi
 
 if [ $(uname) = Darwin ]
     then
+        echo "LDFLAGS" "${LDFLAGS}"
+        echo "CFLAGS" "${CFLAGS}"
         cp -rf $pkgdir/bin $PREFIX
         cp -rf $pkgdir/lib $PREFIX
         cp -rf $pkgdir/share $PREFIX
         cp -rf $pkgdir/include $PREFIX
         update_dyld_shared_cache
+        exit 1
 fi
