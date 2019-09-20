@@ -21,21 +21,8 @@ make
 make package pkgdir=${pkgdir} PKGMANDIR="share/man" install-run install-dev
 sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${pkgdir}/bin/*
 
-if [ $(uname) = Linux ]
-    then
-        cp -rf $pkgdir/bin $PREFIX
-        cp -rf $pkgdir/lib $PREFIX
-        cp -rf $pkgdir/share $PREFIX
-        cp -rf $pkgdir/include $PREFIX
-fi
+cp -rf $pkgdir/bin $PREFIX
+cp -rf $pkgdir/lib $PREFIX
+cp -rf $pkgdir/share $PREFIX
+cp -rf $pkgdir/include $PREFIX
 
-if [ $(uname) = Darwin ]
-    then
-        echo "LDFLAGS" "${LDFLAGS}"
-        echo "CFLAGS" "${CFLAGS}"
-        cp -rf $pkgdir/bin $PREFIX
-        cp -rf $pkgdir/lib $PREFIX
-        cp -rf $pkgdir/share $PREFIX
-        cp -rf $pkgdir/include $PREFIX
-        update_dyld_shared_cache
-fi
