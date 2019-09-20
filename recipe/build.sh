@@ -38,5 +38,4 @@ if [ $(uname) = Darwin ]
         cp -rf $pkgdir/share $PREFIX
         cp -rf $pkgdir/include $PREFIX
         update_dyld_shared_cache
-        exit 1
 fi
