@@ -4,3 +4,16 @@ travis:
 appveyor:
   secure:
     BINSTAR_TOKEN: tumuXLL8PU75WMnRDemRy02ruEq2RpNxeK3dz0MjFssnosPm2v4EFjfNB4PTotA1
+linux:
+  enabled: True
+linux_aarch64:
+  enabled: True
+linux_ppc64le:
+  enabled: True
+osx:
+  enabled: True
+win:
+  enabled: False
+provider:
+  linux_ppc64le: default
+  linux_aarch64: default
