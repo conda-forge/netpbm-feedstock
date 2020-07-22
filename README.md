@@ -5,7 +5,7 @@ Home: http://netpbm.sourceforge.net
 
 Package license: OTHER
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Netpbm is a toolkit for manipulation of graphic images, including conversion of images between a variety of different formats.
 
