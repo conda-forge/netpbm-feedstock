@@ -5,11 +5,13 @@ Home: http://netpbm.sourceforge.net
 
 Package license: OTHER
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/netpbm-feedstock/blob/master/LICENSE.txt)
 
 Summary: Netpbm is a toolkit for manipulation of graphic images, including conversion of images between a variety of different formats.
 
+Development: http://svn.code.sf.net/p/netpbm/code/
 
+Documentation: http://netpbm.sourceforge.net/doc/
 
 Current build status
 ====================
