@@ -15,7 +15,7 @@ jpeg:
 libpng:
 - '1.6'
 libtiff:
-- 4.1.0
+- '4'
 libxml2:
 - '2.9'
 perl:
@@ -35,5 +35,8 @@ pin_run_as_build:
     max_pin: x.x
 target_platform:
 - linux-64
+zip_keys:
+- - cdt_name
+  - docker_image
 zlib:
 - '1.2'
