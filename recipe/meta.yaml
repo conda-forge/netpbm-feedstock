@@ -1,5 +1,5 @@
 {% set name = "netpbm" %}
-{% set version = "10.73.36" %}
+{% set version = "10.73.37" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://sourceforge.net/projects/netpbm/files/super_stable/{{ version }}/netpbm-{{ version }}.tgz
-  sha256: 93b31b11b003082d5fd4037ae5c768b91ea7330b10247a25086c10b5dd71e445
+  sha256: e8826b5bc9a283220a60e8a24c6f5a854f5825c15e4f5171e77b6884f191fafd
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
