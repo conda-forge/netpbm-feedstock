@@ -10,7 +10,7 @@ source:
   sha256: f1ddaa753d189aa7760a75265b6f7ab96eeedac3e2493ef57227824d058d528c
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -23,7 +23,7 @@ requirements:
     - sed
   host:
     - perl
-    - jpeg
+    - libjpeg-turbo
     - libtiff
     - zlib
     - libpng
@@ -31,7 +31,6 @@ requirements:
     - ghostscript
   run:
     - perl
-    - jpeg
     - libtiff
     - zlib
     - libpng
