@@ -31,7 +31,6 @@ requirements:
     - ghostscript
   run:
     - perl
-    - libjpeg-turbo
     - libtiff
     - zlib
     - libpng
@@ -45,7 +44,7 @@ test:
     - ppmtogif -version
     - pamscale -version
     - tifftopnm -version
-    - libjpeg-turbo topnm -version
+    - jpegtopnm -version
     - ppmtopgm -version
     - pamcut -version
     - bmptopnm -version
