@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '11'
+- '12'
 cdt_name:
 - cos6
 channel_sources:
@@ -17,7 +17,7 @@ libpng:
 libtiff:
 - '4.5'
 libxml2:
-- '2.10'
+- '2.11'
 perl:
 - 5.32.1
 target_platform:
