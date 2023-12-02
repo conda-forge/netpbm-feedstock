@@ -17,7 +17,7 @@ libpng:
 libtiff:
 - '4.6'
 libxml2:
-- '2.11'
+- '2.12'
 perl:
 - 5.32.1
 target_platform:
