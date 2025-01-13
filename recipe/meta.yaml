@@ -1,12 +1,11 @@
-{% set name = "netpbm" %}
 {% set version = "10.86.44" %}
 
 package:
-  name: {{ name }}
+  name: netpbm
   version: {{ version }}
 
 source:
-  url: https://downloads.sourceforge.net/project/netpbm/super_stable/${{ version }}/netpbm-${{ version }}.tgz
+  url: https://downloads.sourceforge.net/project/netpbm/super_stable/{{ version }}/netpbm-{{ version }}.tgz
   sha256: e7b62782e675d262c69b9f8f6920c9e5e141f7890d13ae87fef8f5c86b6b6cd6
 
 build:
