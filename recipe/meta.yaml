@@ -30,6 +30,7 @@ requirements:
     - libpng
     - libxml2
     - xorg-libx11
+    - xorg-xproto
   run:
     - perl
 
