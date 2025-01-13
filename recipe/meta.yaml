@@ -18,6 +18,7 @@ requirements:
     - {{ stdlib('c') }}
     - pkg-config
     - flex
+    - ghostscript
     - gettext
     - make
     - sed
@@ -28,14 +29,9 @@ requirements:
     - zlib
     - libpng
     - libxml2
-    - ghostscript
+    - libx11
   run:
     - perl
-    - libtiff
-    - zlib
-    - libpng
-    - libxml2
-    - ghostscript
 
 test:
   commands:

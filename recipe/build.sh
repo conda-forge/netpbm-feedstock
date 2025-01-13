@@ -14,6 +14,8 @@ if [ $(uname) = Darwin ]
         cp ${RECIPE_DIR}/config.mk.macos config.mk
 fi
 
+export CFLAGS="${CFLAGS} -Wno-implicit-function-declaration"
+
 sed -i 's|misc|share/netpbm|' common.mk
 sed -i 's|/link|/lib|' lib/Makefile
 sed -i "s|/tmp/netpbm|${pkgdir}|" config.mk
