@@ -21,6 +21,26 @@ sed -i 's|/link|/lib|' lib/Makefile
 sed -i "s|/tmp/netpbm|${pkgdir}|" config.mk
 sed -i 's|install.manwebmain install.manweb install.man|install.man|' GNUmakefile
 
+if [[ ${build_platform} != ${target_platform} ]]; then
+    CROSS_LDFLAGS=${LDFLAGS}
+    CROSS_CC="${CC}"
+    CROSS_LD="${LD}"
+
+    LDFLAGS=${LDFLAGS//${PREFIX}/${BUILD_PREFIX}}
+    CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
+    LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
+
+    make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap typegen
+    make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap endiangen
+
+    LDFLAGS="${CROSS_LDFLAGS}"
+    CC=${CROSS_CC}
+    LD=${CROSS_LD}
+
+    sed -i "s|\$(TYPEGEN) >\$@|${SRC_DIR}/bootstrap/buildtools/typegen >\$@|" GNUmakefile
+    sed -i "s|\$(ENDIANGEN) >>\$@|${SRC_DIR}/bootstrap/buildtools/endiangen >>\$@|" GNUmakefile
+fi
+
 make
 make package pkgdir=${pkgdir} PKGMANDIR="share/man" install-run install-dev
 sed -i 's#/usr/bin/perl#/usr/bin/env perl#g' ${pkgdir}/bin/*
