@@ -32,6 +32,7 @@ if [[ ${build_platform} != ${target_platform} ]]; then
 
     make -C ${SRC_DIR}/buildtools -f ${SRC_DIR}/buildtools/Makefile SRCDIR=${SRC_DIR} BUILDDIR=${SRC_DIR} typegen
     make -C ${SRC_DIR}/buildtools -f ${SRC_DIR}/buildtools/Makefile SRCDIR=${SRC_DIR} BUILDDIR=${SRC_DIR} endiangen
+    make -C ${SRC_DIR}/buildtools -f ${SRC_DIR}/buildtools/Makefile SRCDIR=${SRC_DIR} BUILDDIR=${SRC_DIR} libopt
 
     mkdir -p ${SRC_DIR}/bootstrap
     mv ${SRC_DIR}/buildtools/typegen ${SRC_DIR}/bootstrap
@@ -45,6 +46,16 @@ if [[ ${build_platform} != ${target_platform} ]]; then
 
     sed -i "s|\$(TYPEGEN) >\$@|${SRC_DIR}/bootstrap/typegen >\$@|" GNUmakefile
     sed -i "s|\$(ENDIANGEN) >>\$@|${SRC_DIR}/bootstrap/endiangen >>\$@|" GNUmakefile
+
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" GNUmakefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" common.mk
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" other/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" other/pamx/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" converter/ppm/ppmtompeg/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" converter/other/jpeg2000/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" converter/other/jbig/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" converter/other/fiasco/Makefile
+    sed -i "s|shell \$(LIBOPT)|shell ${SRC_DIR}/bootstrap/libopt|" converter/other/Makefile
 fi
 
 make
