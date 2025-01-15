@@ -30,16 +30,19 @@ if [[ ${build_platform} != ${target_platform} ]]; then
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
+    make -C ${SRC_DIR}/buildtools -f ${SRC_DIR}/buildtools/Makefile SRCDIR=${SRC_DIR} BUILDDIR=${SRC_DIR} typegen
+    make -C ${SRC_DIR}/buildtools -f ${SRC_DIR}/buildtools/Makefile SRCDIR=${SRC_DIR} BUILDDIR=${SRC_DIR} endiangen
+
     mkdir -p ${SRC_DIR}/bootstrap
-    make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap typegen
-    make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap endiangen
+    mv ${SRC_DIR}/buildtools/typegen ${SRC_DIR}/bootstrap
+    mv ${SRC_DIR}/buildtools/endiangen ${SRC_DIR}/bootstrap
 
     LDFLAGS="${CROSS_LDFLAGS}"
     CC=${CROSS_CC}
     LD=${CROSS_LD}
 
-    sed -i "s|\$(TYPEGEN) >\$@|${SRC_DIR}/bootstrap/buildtools/typegen >\$@|" GNUmakefile
-    sed -i "s|\$(ENDIANGEN) >>\$@|${SRC_DIR}/bootstrap/buildtools/endiangen >>\$@|" GNUmakefile
+    sed -i "s|\$(TYPEGEN) >\$@|${SRC_DIR}/bootstrap/typegen >\$@|" GNUmakefile
+    sed -i "s|\$(ENDIANGEN) >>\$@|${SRC_DIR}/bootstrap/endiangen >>\$@|" GNUmakefile
 fi
 
 make
