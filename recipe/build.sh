@@ -37,6 +37,8 @@ if [[ ${build_platform} != ${target_platform} ]]; then
     mv ${SRC_DIR}/buildtools/typegen ${SRC_DIR}/bootstrap
     mv ${SRC_DIR}/buildtools/endiangen ${SRC_DIR}/bootstrap
 
+    make clean
+
     LDFLAGS="${CROSS_LDFLAGS}"
     CC=${CROSS_CC}
     LD=${CROSS_LD}
