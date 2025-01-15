@@ -30,6 +30,7 @@ if [[ ${build_platform} != ${target_platform} ]]; then
     CC=${CC//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
+    mkdir -p ${SRC_DIR}/bootstrap
     make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap typegen
     make -C $SRC_DIR/buildtools -f $SRC_DIR/buildtools/Makefile SRCDIR=$SRC_DIR BUILDDIR=$SRC_DIR/bootstrap endiangen
 
