@@ -37,6 +37,7 @@ if [[ ${build_platform} != ${target_platform} ]]; then
     mkdir -p ${SRC_DIR}/bootstrap
     mv ${SRC_DIR}/buildtools/typegen ${SRC_DIR}/bootstrap
     mv ${SRC_DIR}/buildtools/endiangen ${SRC_DIR}/bootstrap
+    mv ${SRC_DIR}/buildtools/libopt ${SRC_DIR}/bootstrap
 
     make clean
 
