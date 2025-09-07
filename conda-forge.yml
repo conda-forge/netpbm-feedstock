@@ -1,5 +1,5 @@
 bot:
-  automerge:
+  automerge: null
 build_platform:
   osx_arm64: osx_64
 conda_build:

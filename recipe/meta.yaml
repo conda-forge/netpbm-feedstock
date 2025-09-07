@@ -9,7 +9,7 @@ source:
   sha256: 4c7575dc0f38521e75917438835f19c07651523fa87f6d63492fa2a97d1ab21f
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -28,7 +28,7 @@ requirements:
     - libtiff
     - zlib
     - libpng
-    - libxml2
+    - libxml2-devel
     - xorg-kbproto
     - xorg-libx11
     - xorg-xproto
