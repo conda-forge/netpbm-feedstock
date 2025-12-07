@@ -53,7 +53,7 @@ tests:
       - bmptopnm -version
 
 about:
-  license: OTHER
+  license: LicenseRef-OTHER
   license_file: doc/copyright_summary
   summary: Netpbm is a toolkit for manipulation of graphic images, including conversion of images between a variety of different formats.
   homepage: http://netpbm.sourceforge.net
