@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  version: 10.86.48
+
+package:
+  name: netpbm
+  version: ${{ version }}
+
+source:
+  url: https://downloads.sourceforge.net/project/netpbm/super_stable/${{ version }}/netpbm-${{ version }}.tgz
+  sha256: 709a98e871aeae892437274d68833c804dd41a4b8daf8fd978cac2782da4148a
+
+build:
+  number: 1
+  skip: win
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - pkg-config
+    - flex
+    - ghostscript
+    - gettext-tools
+    - make
+    - sed
+  host:
+    - perl
+    - libjpeg-turbo
+    - libtiff
+    - zlib
+    - libpng
+    - libxml2-devel
+    - xorg-kbproto
+    - xorg-libx11
+    - xorg-xproto
+    - if: osx
+      then: libintl-devel
+  run:
+    - perl
+
+tests:
+  - script:
+      - pnmtopng -version
+      - pnmtops -version
+      - ppmtogif -version
+      - pamscale -version
+      - tifftopnm -version
+      - jpegtopnm -version
+      - ppmtopgm -version
+      - pamcut -version
+      - bmptopnm -version
+
+about:
+  license: LicenseRef-OTHER
+  license_file: doc/copyright_summary
+  summary: Netpbm is a toolkit for manipulation of graphic images, including conversion of images between a variety of different formats.
+  homepage: http://netpbm.sourceforge.net
+  repository: http://svn.code.sf.net/p/netpbm/code/
+  documentation: http://netpbm.sourceforge.net/doc/
+
+extra:
+  recipe-maintainers:
+    - danielnachun
+    - juliotux
