@@ -5,7 +5,7 @@
 
 [workspace]
 name = "netpbm-feedstock"
-version = "3.53.3"  # conda-smithy version used to generate this file
+version = "3.58.0"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/netpbm-feedstock"
 authors = ["@conda-forge/netpbm"]
 channels = ["conda-forge"]

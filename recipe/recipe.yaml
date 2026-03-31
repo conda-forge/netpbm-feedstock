@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 10.86.48
+  version: "10.86.49"
 
 package:
   name: netpbm
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://downloads.sourceforge.net/project/netpbm/super_stable/${{ version }}/netpbm-${{ version }}.tgz
-  sha256: 709a98e871aeae892437274d68833c804dd41a4b8daf8fd978cac2782da4148a
+  sha256: 98c1abdad8e593a20e36b597c6b5b4427c80349544d466eed7761ecec69f6daf
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
