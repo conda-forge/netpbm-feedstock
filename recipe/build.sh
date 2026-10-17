@@ -14,7 +14,9 @@ if [ $(uname) = Darwin ]
         cp ${RECIPE_DIR}/config.mk.macos config.mk
 fi
 
-export CFLAGS="${CFLAGS} -Wno-implicit-function-declaration"
+# Netpbm defines its own bool typedef, which conflicts with the C23 keyword
+# used by default in GCC 15. Keep both the library and build tools on C17.
+export CFLAGS="${CFLAGS} -std=gnu17 -Wno-implicit-function-declaration"
 
 sed -i 's|misc|share/netpbm|' common.mk
 sed -i 's|/link|/lib|' lib/Makefile
